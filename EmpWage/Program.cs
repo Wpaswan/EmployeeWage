@@ -1,24 +1,36 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace EmpWage
 {
-    class EmployeeUseCase1
+    public class EmployeeUseCase2
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             int isPresent = 1;
-            Random random = new Random();
-            int randominput = random.Next(0, 2);
+            int empWage = 0;
+            int ratePerHrs = 20;
+            int empHrs = 0;
 
-            if (randominput == isPresent)
+            Random employee = new Random();
+            int randomInput = employee.Next(0, 2);
+
+            if (randomInput == isPresent)
             {
-                Console.WriteLine("Present");
+                Console.WriteLine("Employee is Present");
+                empHrs = 8;
             }
-            else
+            else 
             {
-                Console.WriteLine("Absent");
+                Console.WriteLine("Employee is Absent");
+                empHrs = 0;
             }
+            empWage = ratePerHrs * empHrs;
+            Console.WriteLine("Employee wage per day: "+empHrs);
             Console.ReadLine();
         }
     }
-
 }
