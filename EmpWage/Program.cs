@@ -4,35 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmpWage.UseCase3
+namespace EmpWage
 {
-    public class EmployeeUseCase3
+    public class EmployeeUseCas4
     {
+        public const int is_Full_Time = 1;
+        public const int is_Part_Time = 2;
+        
+        public const int ratePerHrs = 20;
+        
+
         public static void Main(string[] args)
         {
-            int is_Full_Time = 1;
-            int is_Half_Time = 2;
             int empWage = 0;
-            int ratePerHrs = 20;
             int empHrs = 0;
+            // string typeOfEmployye = "";
 
             Random employee = new Random();
             int randomInput = employee.Next(0, 3);
 
-            if (randomInput == is_Full_Time)
+            switch (randomInput)
             {
-                Console.WriteLine("Full Time Employee is Present");
-                empHrs = 8;
+                case is_Full_Time:
+                    empHrs = 8;
+                    break;
+
+                case is_Part_Time:
+                    empHrs = 4;
+                    break;
+
+                default:
+                    empHrs = 0;
+                    break;
             }
-            else if(randomInput == is_Half_Time)
-            {
-                Console.WriteLine("Part Time Employee is Present");
-                empHrs = 8 / 2;
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-            }
+
             empWage = ratePerHrs * empHrs;
             Console.WriteLine("Employee wage per day: " + empHrs);
             Console.ReadLine();
